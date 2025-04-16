@@ -62,6 +62,11 @@ public class AddAndEditTask extends AppCompatActivity {
             Toast.makeText(this, "Title and Due Date are required", Toast.LENGTH_SHORT).show();
             return false;
         }
+        String date_format = "\\d{4}-\\d{2}-\\d{2}";
+        if (!edtDate.getText().toString().trim().matches(date_format)) {
+            Toast.makeText(this, "Invalid date format. Please use YYYY-MM-DD.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         return true;
     }
 }

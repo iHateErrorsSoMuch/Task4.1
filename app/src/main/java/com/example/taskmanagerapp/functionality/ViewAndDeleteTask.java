@@ -45,8 +45,14 @@ public class ViewAndDeleteTask extends AppCompatActivity {
         });
 
         btnDelete.setOnClickListener(v -> {
-            TaskDatabase.getInstance(this).taskCrud().delete(task);
-            finish();
+            if(task != null) {
+                TaskDatabase.getInstance(this).taskCrud().delete(task);
+                Toast.makeText(this, "Task deleted", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+            else{
+                Toast.makeText(this, "Task not found", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

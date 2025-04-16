@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, AddAndEditTask.class));
         });
 
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Task task = taskList.get(position);
+            Intent intent = new Intent(MainActivity.this, ViewAndDeleteTask.class);
+            intent.putExtra("task_id", task.id);
+            startActivity(intent);
+        });
 
     }
 
